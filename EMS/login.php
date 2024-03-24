@@ -11,7 +11,8 @@
 </head>
 
 <body>
-    <form class="w-full max-w-sm" style="margin: 0 auto; width: 300px; display: block; padding-top: 200px;">
+    <form class="w-full max-w-sm" style="margin: 0 auto; width: 300px; display: block; padding-top: 200px;"
+        method="POST">
 
         <div class="md:flex md:items-center mb-6">
             <div class="md:w-1/3">
@@ -47,7 +48,7 @@
             <div class="md:w-2/3">
                 <button
                     class="shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
-                    type="button" name="emp_login">
+                    type="submit" name="emp_login">
                     Login
                 </button>
 
@@ -59,6 +60,30 @@
             </div>
         </div>
     </form>
+
+    <?php
+    if (isset ($_POST['emp_login'])) {
+        $emp_name = $_POST['emp_name'];
+        $emp_pass = $_POST['emp_pass'];
+
+        $sql = "SELECT * FROM emp_data WHERE emp_name = '$emp_name'";
+        $result = mysqli_query($conn, $sql);
+
+        if (mysqli_num_rows($result) > 0) {
+            while ($row = mysqli_fetch_assoc($result)) {
+                if ($emp_name == $row['emp_name'] && $emp_pass == $row['emp_pass']) {
+                    header('Location: dash.php');
+                    exit();
+                } else {
+                    echo "<script>alert('Username or password is incorrect')</script>";
+                }
+            }
+        } else {
+            echo "<script>alert('Username or password is incorrect')</script>";
+        }
+    }
+    ?>
+
 </body>
 
 </html>
