@@ -22,8 +22,9 @@ if (!$_SESSION['emp_name']) {
         <div class="max-w-screen-xl mx-auto px-4 py-28 gap-12 text-gray-600 md:px-8">
             <div class="space-y-5 max-w-4xl mx-auto text-center">
                 <h1 class="text-sm text-indigo-600 font-medium">
-                    Welcome,
-                    <?php echo $_SESSION['emp_name']; ?>
+                    Welcome, <b>
+                        <?php echo $_SESSION['emp_name']; ?>
+                    </b>
                 </h1>
                 <h2 class="text-4xl text-gray-800 font-extrabold mx-auto md:text-5xl">
                     Manage your employees faster with <span
