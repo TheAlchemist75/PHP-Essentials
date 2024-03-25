@@ -1,4 +1,7 @@
-<?php require 'conn.php' ?>
+<?php
+require 'conn.php';
+session_start();
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -72,6 +75,7 @@
         if (mysqli_num_rows($result) > 0) {
             while ($row = mysqli_fetch_assoc($result)) {
                 if ($emp_name == $row['emp_name'] && $emp_pass == $row['emp_pass']) {
+                    $_SESSION['emp_name'] = $emp_name;
                     header('Location: dash.php');
                     exit();
                 } else {

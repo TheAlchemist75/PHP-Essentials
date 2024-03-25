@@ -1,4 +1,11 @@
-<?php require 'conn.php' ?>
+<?php
+require 'conn.php';
+session_start();
+
+if (!$_SESSION['emp_name']) {
+    header('Location: login.php');
+}
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -15,7 +22,8 @@
         <div class="max-w-screen-xl mx-auto px-4 py-28 gap-12 text-gray-600 md:px-8">
             <div class="space-y-5 max-w-4xl mx-auto text-center">
                 <h1 class="text-sm text-indigo-600 font-medium">
-                    Welcome, Username
+                    Welcome,
+                    <?php echo $_SESSION['emp_name']; ?>
                 </h1>
                 <h2 class="text-4xl text-gray-800 font-extrabold mx-auto md:text-5xl">
                     Manage your employees faster with <span
@@ -32,9 +40,9 @@
                         class="block py-2 px-4 text-white font-medium bg-indigo-600 duration-150 hover:bg-indigo-500 active:bg-indigo-700 rounded-lg shadow-lg hover:shadow-none">
                         View employees
                     </a>
-                    <a href="javascript:void(0)"
+                    <a href="logout.php" style="width:160px"
                         class="block py-2 px-4 text-gray-700 hover:text-gray-500 font-medium duration-150 active:bg-gray-100 border rounded-lg">
-                        Modify details
+                        Log-out
                     </a>
                 </div>
             </div>
