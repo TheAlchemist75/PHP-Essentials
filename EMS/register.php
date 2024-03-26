@@ -1,4 +1,6 @@
-<?php require 'conn.php' ?>
+<?php
+require 'conn.php';
+?>
 
 <!DOCTYPE html>
 <html lang="en">
