@@ -14,55 +14,75 @@ session_start();
 </head>
 
 <body>
-    <form class="w-full max-w-sm" style="margin: 0 auto; width: 300px; display: block; padding-top: 200px;"
-        method="POST">
+    <section class="relative flex flex-wrap lg:h-screen lg:items-center">
+        <div class="w-full px-4 py-12 sm:px-6 sm:py-16 lg:w-1/2 lg:px-8 lg:py-24">
+            <div class="mx-auto max-w-lg text-center">
+                <h1 class="text-2xl font-bold sm:text-3xl">Get started today!</h1>
 
-        <div class="md:flex md:items-center mb-6">
-            <div class="md:w-1/3">
-                <label class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" for="inline-full-name">
-                    Full Name
-                </label>
+                <p class="mt-4 text-gray-500">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Et libero nulla eaque error neque
+                    ipsa culpa autem, at itaque nostrum!
+                </p>
             </div>
-            <div class="md:w-2/3">
-                <input
-                    class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
-                    id="inline-full-name" type="text" placeholder="Jane Doe" name="emp_name">
-            </div>
+
+            <form class="mx-auto mb-0 mt-8 max-w-md space-y-4" method="POST">
+                <div>
+                    <label class="sr-only">Name</label>
+
+                    <div class="relative">
+                        <input class="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
+                            placeholder="Enter Name" name="emp_name" />
+
+                        <span class="absolute inset-y-0 end-0 grid place-content-center px-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="size-4 text-gray-400" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207" />
+                            </svg>
+                        </span>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="sr-only">Password</label>
+
+                    <div class="relative">
+                        <input type="password" class="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
+                            placeholder="Enter password" name="emp_pass" />
+
+                        <span class="absolute inset-y-0 end-0 grid place-content-center px-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="size-4 text-gray-400" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                            </svg>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="flex items-center justify-between">
+                    <p class="text-sm text-gray-500">
+                        No account?
+                        <a class="underline" href="register.php">Register</a>
+                    </p>
+
+                    <button type="submit"
+                        class="inline-block rounded-lg bg-blue-500 px-5 py-3 text-sm font-medium text-white"
+                        name="emp_login">
+                        Login
+                    </button>
+                </div>
+            </form>
         </div>
 
-        <div class="md:flex md:items-center mb-6">
-            <div class="md:w-1/3">
-                <label class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" for="inline-password">
-                    Password
-                </label>
-            </div>
-            <div class="md:w-2/3">
-                <input
-                    class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
-                    id="inline-password" type="password" placeholder="******************" name="emp_pass">
-            </div>
+        <div class="relative h-64 w-full sm:h-96 lg:h-full lg:w-1/2">
+            <img alt=""
+                src="https://images.unsplash.com/photo-1630450202872-e0829c9d6172?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80"
+                class="absolute inset-0 h-full w-full object-cover" />
         </div>
-
-        <div class="md:flex md:items-center mb-6">
-            <div class="md:w-1/3"></div>
-        </div>
-        <div class="md:flex md:items-center">
-            <div class="md:w-1/3"></div>
-            <div class="md:w-2/3">
-                <button
-                    class="shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
-                    type="submit" name="emp_login">
-                    Login
-                </button>
-
-                <button onclick="window.location.href = 'register.php';"
-                    class="shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
-                    type="button" name="emp_register">
-                    Register
-                </button>
-            </div>
-        </div>
-    </form>
+    </section>
 
     <?php
     if (isset ($_POST['emp_login'])) {
