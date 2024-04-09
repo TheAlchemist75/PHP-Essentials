@@ -34,6 +34,7 @@ This project is a simple employee management system where users can add, view, e
 
     ?>
 ```
+
 ### Read
 
 ```php
@@ -46,8 +47,8 @@ This project is a simple employee management system where users can add, view, e
 
             if (mysqli_num_rows($result) > 0) {
                 while ($row = mysqli_fetch_assoc($result)) {
-                    php echo $row['emp_id'];
-                    php echo $row['emp_name'];
+                    echo $row['emp_id'];
+                    echo $row['emp_name'];
                     }
             } else {
                 echo "<script>alert('Seems like it didn't go through')</script>";
@@ -55,3 +56,46 @@ This project is a simple employee management system where users can add, view, e
             ?>
 ```
 
+### Update
+
+```php
+//PHP script to update data in the database (refer to updateemp.php for more detailed code).
+
+<?php
+
+    if (isset ($_POST['emp_register'])) {
+
+        $emp_email = $_POST['emp_email'];
+        $emp_name = $_POST['emp_name'];
+
+        $sql = "UPDATE emp_data SET emp_email='$emp_email', emp_name= '$emp_name' WHERE emp_id='$id'";
+
+        if (mysqli_query($conn, $sql)) {
+            echo "<script>alert('Employee updated Successfully')</script>";
+        } else {
+            echo "Error:" . $sql . "<br/>" . mysqli_error($conn);
+        }
+    }
+    ?>
+```
+
+### Delete
+
+```php
+//PHP script to delete data from the database.
+
+<?php
+
+require 'conn.php';
+$id = $_GET['emp_id'];
+$sql = "DELETE FROM emp_data WHERE emp_id='$id'";
+
+$result = mysqli_query($conn, $sql);
+
+if ($result) {
+    echo "<script>alert('Employee deleted Successfully')</script>";
+    header("Location:dash.php");
+} else {
+    echo "<script>alert('Error deleting the data')</script>";
+}
+```
