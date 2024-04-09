@@ -9,7 +9,7 @@ This project is a simple employee management system where users can add, view, e
 ### Create
 
 ```php
-// A simple PHP script to insert data into the database.
+//PHP script to insert data into the database (refer to register.php for more detailed code).
 
 <?php
     if (isset ($_POST['emp_register'])) {
@@ -34,3 +34,24 @@ This project is a simple employee management system where users can add, view, e
 
     ?>
 ```
+### Read
+
+```php
+//PHP script to read data from the database (refer to viewemp.php for more detailed code).
+
+ <?php
+
+            $sql = "SELECT * FROM emp_data";
+            $result = mysqli_query($conn, $sql);
+
+            if (mysqli_num_rows($result) > 0) {
+                while ($row = mysqli_fetch_assoc($result)) {
+                    php echo $row['emp_id'];
+                    php echo $row['emp_name'];
+                    }
+            } else {
+                echo "<script>alert('Seems like it didn't go through')</script>";
+            }
+            ?>
+```
+
