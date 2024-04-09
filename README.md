@@ -6,7 +6,7 @@ This project is a simple employee management system where users can add, view, e
 
 ## CRUD Operations
 
-### Create
+### (a) Create
 
 ```php
 //PHP script to insert data into the database (refer to register.php for more detailed code).
@@ -35,7 +35,7 @@ This project is a simple employee management system where users can add, view, e
     ?>
 ```
 
-### Read
+### (b) Read
 
 ```php
 //PHP script to read data from the database (refer to viewemp.php for more detailed code).
@@ -56,12 +56,13 @@ This project is a simple employee management system where users can add, view, e
             ?>
 ```
 
-### Update
+### (c) Update
 
 ```php
 //PHP script to update data in the database (refer to updateemp.php for more detailed code).
 
 <?php
+    $id = $_GET['emp_id'];
 
     if (isset ($_POST['emp_register'])) {
 
@@ -79,7 +80,7 @@ This project is a simple employee management system where users can add, view, e
     ?>
 ```
 
-### Delete
+### (d) Delete
 
 ```php
 //PHP script to delete data from the database.
