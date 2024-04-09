@@ -9,24 +9,28 @@ This project is a simple employee management system where users can add, view, e
 ### Create
 
 ```php
-// Create.php
 // A simple PHP script to insert data into the database.
 
-if(isset($_POST['submit'])) {
-    include 'db_connect.php';
+<?php
+    if (isset ($_POST['emp_register'])) {
+        if (empty ($_POST['emp_email']) || empty ($_POST['emp_name']) || empty ($_POST['emp_pass'])) {
+            echo "<script>alert('Please fill in all fields')</script>";
+        } else {
+
+            $emp_email = $_POST['emp_email'];
+            $emp_name = $_POST['emp_name'];
+            $emp_pass = $_POST['emp_pass'];
+            //$emp_pass = md5($_POST['emp_pass']); for encrypting
     
-    $name = $_POST['name'];
-    $email = $_POST['email'];
-    
-    $query = "INSERT INTO users (name, email) VALUES (?, ?)";
-    $stmt = $conn->prepare($query);
-    $stmt->bind_param("ss", $name, $email);
-    $stmt->execute();
-    
-    if($stmt->affected_rows > 0) {
-        echo "Record added successfully.";
-    } else {
-        echo "An error occurred.";
+            $sql = "INSERT INTO emp_data (emp_email, emp_name, emp_pass) VALUES ('$emp_email', '$emp_name', '$emp_pass')";
+
+            if (mysqli_query($conn, $sql)) {
+                echo "<script>alert('Employee added Successfully')</script>";
+            } else {
+                echo "Error:" . $sql . "<br/>" . mysqli_error($conn);
+            }
+        }
     }
-}
+
+    ?>
 ```
